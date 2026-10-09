@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block title %}AI Code Commentor | Home{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                AI-Powered Developer Assistant
+            </div>
+
+            <h1 class="hero-title">
+                Smarter Code
+                <span class="hero-title-line">
+                    <span class="gradient-text">
+                        Better Understanding
+                    </span>
+                </span>
+            </h1>
+
+            <p class="hero-description">
+                Understand, improve, and document your code with the power
+                of Artificial Intelligence. Make your code cleaner,
+                safer, and easier to understand.
+            </p>
+
+            <div class="hero-benefits">
+
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span>Add Meaningful Comments</span>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span>Explain Code</span>
+                </div>
+
+                <div class="benefit-item">
+                    <span class="benefit-icon">✓</span>
+                    <span>Check Quality &amp; Security</span>
+                </div>
+
+            </div>
+
+            <div class="hero-actions">
+
+                <a href="{{ url_for('code_tools') }}"
+                   class="primary-button">
+                    Start Commenting
+                    <span>→</span>
+                </a>
+
+                <a href="#features"
+                   class="secondary-button">
+                    Explore Features
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="code-preview-wrapper">
+
+            <div class="code-window">
+
+                <div class="window-header">
+
+                    <div class="window-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="window-title">
+                        AI Code Commentor
+                    </div>
+
+                </div>
+
+
+                <div class="code-tabs">
+
+                    <button class="code-tab active"
+                            type="button">
+                        Your Code
+                    </button>
+
+                    <button class="code-tab"
+                            type="button">
+                        Commented Code
+                    </button>
+
+                </div>
+
+
+                <div class="code-options">
+
+                    <div class="code-select">
+                        Python
+                        <span>⌄</span>
+                    </div>
+
+                    <div class="code-select">
+                        Python 3
+                        <span>⌄</span>
+                    </div>
+
+                </div>
+
+
+                <div class="code-editor">
+
+<pre><span class="code-keyword">def</span> <span class="code-function">calculate_average</span>(numbers):
+    total = <span class="code-number">0</span>
+
+    <span class="code-keyword">for</span> number <span class="code-keyword">in</span> numbers:
+        total += number
+
+    <span class="code-keyword">return</span> total / <span class="code-function">len</span>(numbers)
+
+
+numbers = [<span class="code-number">10</span>, <span class="code-number">20</span>, <span class="code-number">30</span>]
+average = <span class="code-function">calculate_average</span>(numbers)
+
+<span class="code-function">print</span>(average)</pre>
+
+                </div>
+
+
+                <div class="code-window-footer">
+
+                    <button class="generate-button"
+                            type="button">
+                        <span>✦</span>
+                        Generate Comments
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="features-section"
+         id="features">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                POWERFUL FEATURES
+            </span>
+
+            <h2>
+                Everything You Need to
+                <span class="gradient-text">
+                    Understand Your Code
+                </span>
+            </h2>
+
+            <p>
+                Powerful AI tools designed to help you write,
+                understand, and improve better code.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    <span>✎</span>
+                </div>
+
+                <h3>
+                    Add Meaningful Comments
+                </h3>
+
+                <p>
+                    Automatically add clear and useful comments
+                    to make your code easier to understand.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    <span>?</span>
+                </div>
+
+                <h3>
+                    Explain Code
+                </h3>
+
+                <p>
+                    Get simple, step-by-step explanations of
+                    complex code and programming logic.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    <span>✓</span>
+                </div>
+
+                <h3>
+                    Check Quality &amp; Security
+                </h3>
+
+                <p>
+                    Analyze your code for quality, performance,
+                    readability, and potential security issues.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    <span>&lt;/&gt;</span>
+                </div>
+
+                <h3>
+                    Multiple Languages
+                </h3>
+
+                <p>
+                    Work with popular programming languages
+                    including Python, JavaScript, Java, C and C++.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    <span>↑</span>
+                </div>
+
+                <h3>
+                    Upload Files
+                </h3>
+
+                <p>
+                    Upload your source files and let AI help
+                    you understand and improve your code.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

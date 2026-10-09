@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ question.title }} | Technical Screening
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/question.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/questions.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+<section class="question-page">
+
+    <div class="question-layout">
+
+        <!-- LEFT SIDEBAR -->
+
+        <aside class="question-sidebar">
+
+            <div class="sidebar-header">
+
+                <a href="{{ url_for('technical_screening') }}"
+                   class="back-link">
+                    ← Back
+                </a>
+
+                <h2>
+                    {{ difficulty|capitalize }}
+                    Questions
+                </h2>
+
+                <p>
+                    Question {{ question_id }} of {{ questions|length }}
+                </p>
+
+            </div>
+
+
+            <div class="question-list">
+
+                {% for item in questions %}
+
+                <a href="{{ url_for('question',
+                                    difficulty=difficulty,
+                                    question_id=item.id) }}"
+                   class="question-list-item
+                   {% if item.id == question_id %}active{% endif %}">
+
+                    <span class="question-number">
+                        {{ "%02d"|format(item.id) }}
+                    </span>
+
+                    <span class="question-list-content">
+
+                        <strong>
+                            {{ item.title }}
+                        </strong>
+
+                        <small>
+                            {{ item.topic }}
+                        </small>
+
+                    </span>
+
+                    {% if item.id < question_id %}
+                    <span class="question-completed">
+                        ✓
+                    </span>
+                    {% endif %}
+
+                </a>
+
+                {% endfor %}
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="question-main">
+
+            <div class="question-topbar">
+
+                <div>
+
+                    <span class="question-difficulty">
+                        {{ difficulty|upper }}
+                    </span>
+
+                    <span class="question-topic">
+                        {{ question.topic }}
+                    </span>
+
+                </div>
+
+                <span class="question-counter">
+                    {{ question_id }} / {{ questions|length }}
+                </span>
+
+            </div>
+
+
+            <div class="question-heading">
+
+                <h1>
+                    {{ question.title }}
+                </h1>
+
+                <p>
+                    {{ question.description }}
+                </p>
+
+            </div>
+
+
+            <!-- TABS -->
+
+            <div class="question-tabs">
+
+                <button type="button"
+                        class="question-tab active"
+                        data-tab="logic">
+                    Problem &amp; Logic
+                </button>
+
+                <button type="button"
+                        class="question-tab"
+                        data-tab="pseudocode">
+                    Pseudo Code
+                </button>
+
+                <button type="button"
+                        class="question-tab"
+                        data-tab="code">
+                    Code + Output
+                </button>
+
+                <button type="button"
+                        class="question-tab"
+                        data-tab="examples">
+                    Examples
+                </button>
+
+                <button type="button"
+                        class="question-tab"
+                        data-tab="practice">
+                    AI Practice
+                    <span class="practice-count">2</span>
+                </button>
+
+            </div>
+
+
+            <!-- PROBLEM & LOGIC -->
+
+            <div class="question-tab-content active"
+                 id="logic">
+
+                <div class="content-card">
+
+                    <div class="content-card-heading">
+
+                        <span class="content-icon">
+                            ?
+                        </span>
+
+                        <div>
+                            <h2>
+                                Problem
+                            </h2>
+
+                            <p>
+                                Understand what the problem is asking.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="problem-description">
+
+                        <p>
+                            {{ question.description }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="content-card-heading">
+
+                        <span class="content-icon">
+                            ◈
+                        </span>
+
+                        <div>
+                            <h2>
+                                Logic
+                            </h2>
+
+                            <p>
+                                Follow these steps to solve the problem.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <ol class="logic-list">
+
+                        {% for step in question.logic %}
+
+                        <li>
+                            {{ step }}
+                        </li>
+
+                        {% endfor %}
+
+                    </ol>
+
+                </div>
+
+            </div>
+
+
+            <!-- PSEUDOCODE -->
+
+            <div class="question-tab-content"
+                 id="pseudocode">
+
+                <div class="content-card">
+
+                    <div class="content-card-heading">
+
+                        <span class="content-icon">
+                            &lt;/&gt;
+                        </span>
+
+                        <div>
+                            <h2>
+                                Pseudo Code
+                            </h2>
+
+                            <p>
+                                Understand the solution before writing code.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="pseudocode-box">
+
+                        {% for line in question.pseudocode %}
+
+                        <div class="pseudo-line">
+                            {{ line }}
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CODE + OUTPUT -->
+
+            <div class="question-tab-content"
+                 id="code">
+
+                <div class="content-card">
+
+                    <div class="content-card-heading">
+
+                        <span class="content-icon">
+                            &lt;/&gt;
+                        </span>
+
+                        <div>
+                            <h2>
+                                Reference Code
+                            </h2>
+
+                            <p>
+                                Example solution for this question.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="code-block">
+
+                        <div class="code-block-header">
+
+                            <span>
+                                Python
+                            </span>
+
+                            <button type="button"
+                                    class="copy-question-code"
+                                    data-code-target="solutionCode">
+                                Copy
+                            </button>
+
+                        </div>
+
+                        <pre id="solutionCode">{{ question.solution }}</pre>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <div class="content-card-heading">
+
+                        <span class="content-icon">
+                            ▶
+                        </span>
+
+                        <div>
+                            <h2>
+                                Output
+                            </h2>
+
+                            <p>
+                                Expected output for the example.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="output-box">
+                        {{ question.example_output }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXAMPLES -->
+
+            <div class="question-tab-content"
+                 id="examples">
+
+                <div class="examples-grid">
+
+                    <div class="example-card">
+
+                        <div class="example-card-header">
+                            <span>
+                                Example Input
+                            </span>
+                        </div>
+
+                        <pre>{{ question.example_input }}</pre>
+
+                    </div>
+
+
+                    <div class="example-card">
+
+                        <div class="example-card-header">
+                            <span>
+                                Example Output
+                            </span>
+                        </div>
+
+                        <pre>{{ question.example_output }}</pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI PRACTICE -->
+
+            <div class="question-tab-content"
+                 id="practice">
+
+                <div class="practice-intro">
+
+                    <span class="practice-icon">
+                        ✦
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            AI Practice Questions
+                        </h2>
+
+                        <p>
+                            Try these two additional questions
+                            to strengthen your understanding.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="practice-grid">
+
+                    {% for practice_question in question.practice %}
+
+                    <article class="practice-card">
+
+                        <div class="practice-number">
+                            {{ practice_question.id }}
+                        </div>
+
+                        <div class="practice-card-content">
+
+                            <span class="practice-label">
+                                PRACTICE {{ practice_question.id }}
+                            </span>
+
+                            <h3>
+                                {{ practice_question.title }}
+                            </h3>
+
+                            <p>
+                                {{ practice_question.description }}
+                            </p>
+
+                            <a href="{{ url_for(
+                                'practice',
+                                difficulty=difficulty,
+                                question_id=question_id
+                            ) }}"
+                               class="practice-button">
+                                Practice Now
+                                <span>→</span>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION NAVIGATION -->
+
+            <div class="question-navigation">
+
+                {% if question_id > 1 %}
+
+                <a href="{{ url_for(
+                    'question',
+                    difficulty=difficulty,
+                    question_id=question_id - 1
+                ) }}"
+                   class="previous-question">
+                    ← Previous
+                </a>
+
+                {% else %}
+
+                <span class="previous-question disabled">
+                    ← Previous
+                </span>
+
+                {% endif %}
+
+
+                {% if question_id < questions|length %}
+
+                <a href="{{ url_for(
+                    'question',
+                    difficulty=difficulty,
+                    question_id=question_id + 1
+                ) }}"
+                   class="next-question">
+                    Next Question →
+                </a>
+
+                {% else %}
+
+                <a href="{{ url_for('technical_screening') }}"
+                   class="next-question">
+                    Finish Round →
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </main>
+
+    </div>
+
+</section>
+
+{% endblock %}

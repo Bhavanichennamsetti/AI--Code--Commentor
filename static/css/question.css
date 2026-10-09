@@ -1,0 +1,981 @@
+/* =========================================================
+   AI CODE COMMENTOR
+   TECHNICAL SCREENING - QUESTION PAGE
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. PAGE
+   --------------------------------------------------------- */
+
+.question-page {
+    min-height: calc(100vh - 150px);
+
+    background: #f8fafc;
+}
+
+
+/* ---------------------------------------------------------
+   2. MAIN LAYOUT
+   --------------------------------------------------------- */
+
+.question-layout {
+    width: min(1280px, calc(100% - 40px));
+    min-height: calc(100vh - 150px);
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 275px minmax(0, 1fr);
+    gap: 28px;
+}
+
+
+/* ---------------------------------------------------------
+   3. LEFT SIDEBAR
+   --------------------------------------------------------- */
+
+.question-sidebar {
+    align-self: start;
+
+    position: sticky;
+    top: 94px;
+
+    max-height: calc(100vh - 115px);
+
+    overflow-y: auto;
+
+    margin: 24px 0;
+
+    padding: 20px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 28px rgba(15, 23, 42, 0.05);
+}
+
+.sidebar-header {
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #e8edf3;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #2563eb;
+}
+
+.sidebar-header h2 {
+    margin-bottom: 4px;
+
+    color: #172033;
+
+    font-size: 18px;
+}
+
+.sidebar-header p {
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+
+/* ---------------------------------------------------------
+   4. QUESTION LIST
+   --------------------------------------------------------- */
+
+.question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    padding-top: 15px;
+}
+
+.question-list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    min-height: 61px;
+
+    padding: 9px 10px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    color: #475569;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.question-list-item:hover {
+    background: #f8fafc;
+}
+
+.question-list-item.active {
+    border-color: #bfdbfe;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+}
+
+.question-number {
+    width: 32px;
+    height: 32px;
+
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #f1f5f9;
+    color: #64748b;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.question-list-item.active .question-number {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.question-list-content {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.question-list-content strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #334155;
+
+    font-size: 11px;
+    line-height: 1.4;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.question-list-item.active .question-list-content strong {
+    color: #1d4ed8;
+}
+
+.question-list-content small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+}
+
+.question-completed {
+    color: #22c55e;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+/* ---------------------------------------------------------
+   5. MAIN CONTENT
+   --------------------------------------------------------- */
+
+.question-main {
+    min-width: 0;
+
+    padding: 40px 0 70px;
+}
+
+
+/* ---------------------------------------------------------
+   6. TOP BAR
+   --------------------------------------------------------- */
+
+.question-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.question-topbar > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.question-difficulty,
+.question-topic {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 25px;
+    padding: 0 9px;
+
+    border-radius: 999px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.question-difficulty {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.question-topic {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.question-counter {
+    color: #94a3b8;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   7. QUESTION HEADING
+   --------------------------------------------------------- */
+
+.question-heading {
+    margin-bottom: 28px;
+}
+
+.question-heading h1 {
+    margin-bottom: 10px;
+
+    color: #172033;
+
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.question-heading p {
+    max-width: 760px;
+
+    color: #64748b;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   8. TABS
+   --------------------------------------------------------- */
+
+.question-tabs {
+    display: flex;
+    align-items: center;
+
+    overflow-x: auto;
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #dfe6ef;
+
+    scrollbar-width: none;
+}
+
+.question-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.question-tab {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    padding: 13px 15px;
+
+    border: 0;
+    background: transparent;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.question-tab:hover {
+    color: #475569;
+}
+
+.question-tab.active {
+    color: #2563eb;
+}
+
+.question-tab.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+    bottom: -1px;
+
+    height: 2px;
+
+    border-radius: 2px;
+
+    background: #2563eb;
+}
+
+.practice-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 17px;
+    height: 17px;
+
+    margin-left: 4px;
+
+    border-radius: 50%;
+
+    background: #ede9fe;
+    color: #7c3aed;
+
+    font-size: 9px;
+}
+
+
+/* ---------------------------------------------------------
+   9. TAB CONTENT
+   --------------------------------------------------------- */
+
+.question-tab-content {
+    display: none;
+}
+
+.question-tab-content.active {
+    display: block;
+}
+
+
+/* ---------------------------------------------------------
+   10. CONTENT CARD
+   --------------------------------------------------------- */
+
+.content-card {
+    margin-bottom: 18px;
+    padding: 23px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 7px 22px rgba(15, 23, 42, 0.035);
+}
+
+.content-card-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.content-icon {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.content-card-heading h2 {
+    margin-bottom: 2px;
+
+    color: #172033;
+
+    font-size: 17px;
+}
+
+.content-card-heading p {
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+.problem-description p {
+    color: #475569;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   11. LOGIC LIST
+   --------------------------------------------------------- */
+
+.logic-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    padding-left: 21px;
+}
+
+.logic-list li {
+    padding-left: 5px;
+
+    color: #475569;
+
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.logic-list li::marker {
+    color: #2563eb;
+    font-weight: 800;
+}
+
+
+/* ---------------------------------------------------------
+   12. PSEUDOCODE
+   --------------------------------------------------------- */
+
+.pseudocode-box {
+    overflow-x: auto;
+
+    padding: 20px;
+
+    border: 1px solid #26344b;
+    border-radius: 10px;
+
+    background: #111827;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+}
+
+.pseudo-line {
+    min-height: 23px;
+
+    color: #cbd5e1;
+
+    font-size: 12px;
+    line-height: 1.7;
+
+    white-space: pre;
+}
+
+
+/* ---------------------------------------------------------
+   13. CODE BLOCK
+   --------------------------------------------------------- */
+
+.code-block {
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #111827;
+}
+
+.code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 40px;
+
+    padding: 0 13px;
+
+    background: #182235;
+
+    border-bottom: 1px solid #27344a;
+
+    color: #cbd5e1;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.copy-question-code {
+    padding: 5px 9px;
+
+    border: 1px solid #34445d;
+    border-radius: 6px;
+
+    background: transparent;
+    color: #cbd5e1;
+
+    font-size: 10px;
+}
+
+.copy-question-code:hover {
+    background: #26344b;
+}
+
+.code-block pre {
+    overflow-x: auto;
+
+    margin: 0;
+    padding: 20px;
+
+    color: #dbeafe;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 12px;
+    line-height: 1.8;
+
+    white-space: pre;
+}
+
+
+/* ---------------------------------------------------------
+   14. OUTPUT
+   --------------------------------------------------------- */
+
+.output-box {
+    min-height: 70px;
+
+    padding: 17px;
+
+    border: 1px solid #dcfce7;
+    border-radius: 9px;
+
+    background: #f0fdf4;
+
+    color: #166534;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 12px;
+
+    white-space: pre-wrap;
+}
+
+
+/* ---------------------------------------------------------
+   15. EXAMPLES
+   --------------------------------------------------------- */
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+.example-card {
+    overflow: hidden;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 13px;
+
+    background: #ffffff;
+}
+
+.example-card-header {
+    padding: 12px 15px;
+
+    border-bottom: 1px solid #e5eaf1;
+
+    background: #f8fafc;
+
+    color: #475569;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.example-card pre {
+    min-height: 100px;
+
+    margin: 0;
+    padding: 17px;
+
+    color: #334155;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 12px;
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+}
+
+
+/* ---------------------------------------------------------
+   16. AI PRACTICE
+   --------------------------------------------------------- */
+
+.practice-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    margin-bottom: 18px;
+    padding: 20px;
+
+    border: 1px solid #ddd6fe;
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #faf5ff,
+            #eff6ff
+        );
+}
+
+.practice-icon {
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #ede9fe;
+    color: #7c3aed;
+
+    font-size: 16px;
+}
+
+.practice-intro h2 {
+    margin-bottom: 3px;
+
+    color: #312e81;
+
+    font-size: 17px;
+}
+
+.practice-intro p {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+.practice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+}
+
+.practice-card {
+    display: flex;
+    gap: 14px;
+
+    padding: 20px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 7px 22px rgba(15, 23, 42, 0.035);
+}
+
+.practice-number {
+    width: 35px;
+    height: 35px;
+
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.practice-card-content {
+    min-width: 0;
+}
+
+.practice-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #7c3aed;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.practice-card h3 {
+    margin-bottom: 7px;
+
+    color: #172033;
+
+    font-size: 15px;
+}
+
+.practice-card p {
+    margin-bottom: 14px;
+
+    color: #64748b;
+
+    font-size: 11px;
+    line-height: 1.65;
+}
+
+.practice-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.practice-button:hover {
+    color: #7c3aed;
+}
+
+
+/* ---------------------------------------------------------
+   17. QUESTION NAVIGATION
+   --------------------------------------------------------- */
+
+.question-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 25px;
+}
+
+.previous-question,
+.next-question {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 0 14px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.previous-question {
+    border: 1px solid #dbe3ed;
+
+    background: #ffffff;
+    color: #475569;
+}
+
+.previous-question:hover {
+    background: #f8fafc;
+}
+
+.previous-question.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.next-question {
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 7px 18px rgba(37, 99, 235, 0.17);
+}
+
+.next-question:hover {
+    transform: translateY(-1px);
+}
+
+
+/* ---------------------------------------------------------
+   18. TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+
+    .question-layout {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .question-sidebar {
+        padding: 15px;
+    }
+
+    .question-list-content strong {
+        font-size: 10px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   19. MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 780px) {
+
+    .question-layout {
+        width: calc(100% - 28px);
+
+        display: block;
+    }
+
+    .question-sidebar {
+        position: static;
+
+        max-height: none;
+
+        margin: 18px 0 0;
+
+        padding: 16px;
+    }
+
+    .question-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .question-list-item {
+        min-height: 56px;
+    }
+
+    .question-main {
+        padding: 30px 0 60px;
+    }
+
+    .question-heading h1 {
+        font-size: 30px;
+    }
+
+    .examples-grid,
+    .practice-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   20. SMALL MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 500px) {
+
+    .question-list {
+        grid-template-columns: 1fr;
+    }
+
+    .question-topbar {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .question-topbar > div {
+        flex-wrap: wrap;
+    }
+
+    .question-heading h1 {
+        font-size: 27px;
+    }
+
+    .content-card {
+        padding: 18px;
+    }
+
+    .question-navigation {
+        gap: 10px;
+    }
+
+    .previous-question,
+    .next-question {
+        flex: 1;
+    }
+
+    .practice-card {
+        padding: 17px;
+    }
+}

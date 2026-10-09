@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AI Code Commentor - Understand, improve and document your code with AI.">
+
+    <title>
+        {% block title %}
+        AI Code Commentor
+        {% endblock %}
+    </title>
+
+
+    <!-- Global CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Navigation CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/navbar.css') }}">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/responsive.css') }}">
+
+
+    <!-- Page-specific CSS -->
+    {% block extra_css %}{% endblock %}
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION BAR
+         ===================================================== -->
+
+    <header class="main-navbar">
+
+        <div class="navbar-container">
+
+
+            <!-- Logo -->
+
+            <a href="{{ url_for('home') }}"
+               class="navbar-logo">
+
+                <img
+                    src="{{ url_for('static', filename='assets/images/logo.svg') }}"
+                    alt="AI Code Commentor Logo"
+                    class="logo-image">
+
+                <span class="logo-text">
+                    AI Code Commentor
+                </span>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <nav class="navbar-links"
+                 aria-label="Main navigation">
+
+                <a href="{{ url_for('home') }}"
+                   class="nav-link {% if request.endpoint == 'home' %}active{% endif %}">
+                    Home
+                </a>
+
+                <a href="{{ url_for('code_tools') }}"
+                   class="nav-link {% if request.endpoint == 'code_tools' %}active{% endif %}">
+                    Code Tools
+                </a>
+
+                <a href="{{ url_for('technical_screening') }}"
+                   class="nav-link {% if request.endpoint == 'technical_screening' %}active{% endif %}">
+                    Technical Screening
+                </a>
+
+                <a href="{{ url_for('about') }}"
+                   class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">
+                    About
+                </a>
+
+            </nav>
+
+
+            <!-- Right-side Actions -->
+
+            <div class="navbar-actions">
+
+
+                <!-- Theme Toggle -->
+
+                <button
+                    type="button"
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Toggle theme">
+
+                    <span id="themeIcon">
+                        ☾
+                    </span>
+
+                </button>
+
+
+                <!-- Developer Profile -->
+
+                <div class="developer-profile">
+
+                    <span class="profile-greeting">
+                        Hello, Developer
+                    </span>
+
+                    <div class="profile-icon">
+                        ♙
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Mobile Menu Button -->
+
+            <button
+                type="button"
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+
+                ☰
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             MOBILE NAVIGATION
+             ================================================= -->
+
+        <div class="mobile-navigation"
+             id="mobileNavigation">
+
+            <a href="{{ url_for('home') }}"
+               class="mobile-nav-link {% if request.endpoint == 'home' %}active{% endif %}">
+                Home
+            </a>
+
+            <a href="{{ url_for('code_tools') }}"
+               class="mobile-nav-link {% if request.endpoint == 'code_tools' %}active{% endif %}">
+                Code Tools
+            </a>
+
+            <a href="{{ url_for('technical_screening') }}"
+               class="mobile-nav-link {% if request.endpoint == 'technical_screening' %}active{% endif %}">
+                Technical Screening
+            </a>
+
+            <a href="{{ url_for('about') }}"
+               class="mobile-nav-link {% if request.endpoint == 'about' %}active{% endif %}">
+                About
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN PAGE CONTENT
+         ===================================================== -->
+
+    <main class="page-content">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="main-footer">
+
+        <div class="footer-container">
+
+            <p>
+                AI Code Commentor
+                <span>•</span>
+                Build Better Code with AI
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         GLOBAL JAVASCRIPT
+         ===================================================== -->
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+
+
+    <!-- Page-specific JavaScript -->
+
+    {% block extra_js %}{% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+
+{% block title %}Technical Screening | AI Code Commentor{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/screening.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/screening.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+<section class="screening-page">
+
+    <div class="screening-container">
+
+        <div class="screening-heading">
+
+            <span class="screening-label">
+                TECHNICAL SCREENING
+            </span>
+
+            <h1>
+                Technical Screening
+                <span class="gradient-text">Round</span>
+            </h1>
+
+            <p>
+                Test your programming skills with interview-style
+                coding questions. Choose a difficulty level to begin.
+            </p>
+
+        </div>
+
+
+        <div class="difficulty-grid">
+
+            <!-- EASY -->
+
+            <article class="difficulty-card easy-card">
+
+                <div class="difficulty-card-top">
+
+                    <div class="difficulty-icon">
+                        ✓
+                    </div>
+
+                    <span class="difficulty-level">
+                        EASY
+                    </span>
+
+                </div>
+
+                <h2>
+                    Easy
+                </h2>
+
+                <p class="difficulty-description">
+                    Build your programming fundamentals with
+                    simple if/else problems.
+                </p>
+
+                <div class="difficulty-details">
+
+                    <div class="detail-item">
+                        <span class="detail-icon">?</span>
+                        <span>5 Questions</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-icon">&lt;/&gt;</span>
+                        <span>If / Else</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-icon">◷</span>
+                        <span>Beginner Level</span>
+                    </div>
+
+                </div>
+
+                <a href="{{ url_for('question',
+                                    difficulty='easy',
+                                    question_id=1) }}"
+                   class="difficulty-button">
+                    Start Easy
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+            <!-- MEDIUM -->
+
+            <article class="difficulty-card medium-card">
+
+                <div class="difficulty-card-top">
+
+                    <div class="difficulty-icon">
+                        ◈
+                    </div>
+
+                    <span class="difficulty-level">
+                        MEDIUM
+                    </span>
+
+                </div>
+
+                <h2>
+                    Medium
+                </h2>
+
+                <p class="difficulty-description">
+                    Strengthen your problem-solving skills with
+                    loop-based programming challenges.
+                </p>
+
+                <div class="difficulty-details">
+
+                    <div class="detail-item">
+                        <span class="detail-icon">?</span>
+                        <span>5 Questions</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-icon">&lt;/&gt;</span>
+                        <span>Loops</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-icon">◷</span>
+                        <span>Intermediate Level</span>
+                    </div>
+
+                </div>
+
+                <a href="{{ url_for('question',
+                                    difficulty='medium',
+                                    question_id=1) }}"
+                   class="difficulty-button">
+                    Start Medium
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+            <!-- HARD -->
+
+            <article class="difficulty-card hard-card">
+
+                <div class="difficulty-card-top">
+
+                    <div class="difficulty-icon">
+                        ★
+                    </div>
+
+                    <span class="difficulty-level">
+                        HARD
+                    </span>
+
+                </div>
+
+                <h2>
+                    Hard
+                </h2>
+
+                <p class="difficulty-description">
+                    Challenge yourself with function-based
+                    interview problems and advanced logic.
+                </p>
+
+                <div class="difficulty-details">
+
+                    <div class="detail-item">
+                        <span class="detail-icon">?</span>
+                        <span>5 Questions</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-icon">&lt;/&gt;</span>
+                        <span>Functions</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-icon">◷</span>
+                        <span>Advanced Level</span>
+                    </div>
+
+                </div>
+
+                <a href="{{ url_for('question',
+                                    difficulty='hard',
+                                    question_id=1) }}"
+                   class="difficulty-button">
+                    Start Hard
+                    <span>→</span>
+                </a>
+
+            </article>
+
+        </div>
+
+
+        <div class="screening-info">
+
+            <div class="info-icon">
+                ✦
+            </div>
+
+            <div class="info-content">
+
+                <h3>
+                    How the Technical Screening Works
+                </h3>
+
+                <p>
+                    Choose a difficulty level and solve 5 interview-style
+                    programming questions. Each question includes logic,
+                    pseudocode, code, output examples, and AI-powered
+                    practice questions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

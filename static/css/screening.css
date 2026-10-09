@@ -1,0 +1,465 @@
+/* =========================================================
+   AI CODE COMMENTOR
+   TECHNICAL SCREENING PAGE
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. SCREENING PAGE
+   --------------------------------------------------------- */
+
+.screening-page {
+    min-height: calc(100vh - 150px);
+    padding: 70px 0 90px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(124, 58, 237, 0.08),
+            transparent 34%
+        ),
+        #f8fbff;
+}
+
+
+/* ---------------------------------------------------------
+   2. SCREENING HEADER
+   --------------------------------------------------------- */
+
+.screening-heading {
+    max-width: 760px;
+    margin: 0 auto 48px;
+
+    text-align: center;
+}
+
+.screening-label {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #7c3aed;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.screening-heading h1 {
+    margin-bottom: 14px;
+
+    color: #172033;
+
+    font-size: clamp(36px, 5vw, 50px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.screening-heading p {
+    max-width: 650px;
+    margin: 0 auto;
+
+    color: #64748b;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   3. DIFFICULTY GRID
+   --------------------------------------------------------- */
+
+.difficulty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+
+/* ---------------------------------------------------------
+   4. DIFFICULTY CARD
+   --------------------------------------------------------- */
+
+.difficulty-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 430px;
+    padding: 28px;
+
+    overflow: hidden;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 32px rgba(15, 23, 42, 0.055);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.difficulty-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #2563eb;
+}
+
+.difficulty-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 42px rgba(15, 23, 42, 0.09);
+}
+
+.easy-card::before {
+    background: #22c55e;
+}
+
+.medium-card::before {
+    background: #f59e0b;
+}
+
+.hard-card::before {
+    background: #ef4444;
+}
+
+
+/* ---------------------------------------------------------
+   5. CARD TOP
+   --------------------------------------------------------- */
+
+.difficulty-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.difficulty-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.easy-card .difficulty-icon {
+    background: #ecfdf5;
+    color: #16a34a;
+}
+
+.medium-card .difficulty-icon {
+    background: #fffbeb;
+    color: #d97706;
+}
+
+.hard-card .difficulty-icon {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.difficulty-level {
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    background: #f1f5f9;
+    color: #64748b;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* ---------------------------------------------------------
+   6. CARD CONTENT
+   --------------------------------------------------------- */
+
+.difficulty-card h2 {
+    margin-bottom: 10px;
+
+    color: #172033;
+
+    font-size: 27px;
+}
+
+.difficulty-description {
+    min-height: 65px;
+
+    margin-bottom: 22px;
+
+    color: #64748b;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   7. CARD DETAILS
+   --------------------------------------------------------- */
+
+.difficulty-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-bottom: 26px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #475569;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.detail-icon {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: #f8fafc;
+    color: #64748b;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+/* ---------------------------------------------------------
+   8. DIFFICULTY BUTTON
+   --------------------------------------------------------- */
+
+.difficulty-button {
+    width: 100%;
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: auto;
+
+    border-radius: 9px;
+
+    background: #172033;
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.difficulty-button:hover {
+    transform: translateY(-1px);
+
+    background: #2563eb;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.20);
+}
+
+.easy-card .difficulty-button:hover {
+    background: #16a34a;
+}
+
+.medium-card .difficulty-button:hover {
+    background: #d97706;
+}
+
+.hard-card .difficulty-button:hover {
+    background: #dc2626;
+}
+
+
+/* ---------------------------------------------------------
+   9. SCREENING INFORMATION
+   --------------------------------------------------------- */
+
+.screening-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    margin-top: 24px;
+    padding: 22px 25px;
+
+    border: 1px solid #ddd6fe;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #faf5ff,
+            #eff6ff
+        );
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #ede9fe;
+    color: #7c3aed;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.info-content h3 {
+    margin-bottom: 4px;
+
+    color: #312e81;
+
+    font-size: 15px;
+}
+
+.info-content p {
+    color: #64748b;
+
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+
+/* ---------------------------------------------------------
+   10. TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 950px) {
+
+    .difficulty-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .difficulty-card {
+        min-height: auto;
+    }
+
+    .difficulty-description {
+        min-height: auto;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   11. MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .screening-page {
+        padding: 50px 0 65px;
+    }
+
+    .screening-container {
+        width: calc(100% - 28px);
+    }
+
+    .screening-heading {
+        margin-bottom: 34px;
+    }
+
+    .screening-heading h1 {
+        font-size: 35px;
+    }
+
+    .screening-heading p {
+        font-size: 14px;
+    }
+
+    .difficulty-card {
+        padding: 23px;
+        border-radius: 15px;
+    }
+
+    .difficulty-card h2 {
+        font-size: 24px;
+    }
+
+    .screening-info {
+        padding: 18px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   12. SMALL MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 450px) {
+
+    .screening-heading h1 {
+        font-size: 31px;
+    }
+
+    .difficulty-card {
+        padding: 20px;
+    }
+
+    .difficulty-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .screening-info {
+        gap: 12px;
+    }
+
+    .info-icon {
+        width: 35px;
+        height: 35px;
+    }
+}

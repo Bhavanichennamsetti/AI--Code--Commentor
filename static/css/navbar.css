@@ -1,0 +1,412 @@
+/* =========================================================
+   AI CODE COMMENTOR
+   NAVBAR
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. MAIN NAVBAR
+   --------------------------------------------------------- */
+
+.main-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid #e7edf5;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.navbar-container {
+    width: min(1180px, calc(100% - 40px));
+    min-height: 74px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* ---------------------------------------------------------
+   2. LOGO
+   --------------------------------------------------------- */
+
+.navbar-logo {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+
+    color: #172033;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    font-size: 15px;
+    font-weight: 800;
+
+    box-shadow:
+        0 7px 18px rgba(37, 99, 235, 0.20);
+}
+
+.logo-text {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+}
+.logo-image {
+    width: 42px;
+    height: 42px;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------
+   3. DESKTOP NAVIGATION
+   --------------------------------------------------------- */
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-left: auto;
+}
+
+.nav-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 74px;
+    padding: 0 14px;
+
+    color: #64748b;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 14px;
+    right: 14px;
+    bottom: 0;
+
+    height: 3px;
+
+    border-radius: 3px 3px 0 0;
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    transform: scaleX(0);
+
+    transition: transform 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #2563eb;
+}
+
+.nav-link.active {
+    color: #2563eb;
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+
+/* ---------------------------------------------------------
+   4. NAVBAR ACTIONS
+   --------------------------------------------------------- */
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    flex-shrink: 0;
+}
+
+
+/* ---------------------------------------------------------
+   5. THEME BUTTON
+   --------------------------------------------------------- */
+
+.theme-toggle {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #475569;
+
+    font-size: 18px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    color: #2563eb;
+    border-color: #bfdbfe;
+    background: #eff6ff;
+
+    transform: translateY(-1px);
+}
+
+
+/* ---------------------------------------------------------
+   6. DEVELOPER PROFILE
+   --------------------------------------------------------- */
+
+.developer-profile {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.profile-greeting {
+    color: #64748b;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.profile-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #2563eb;
+    background: #eff6ff;
+
+    border: 1px solid #dbeafe;
+
+    font-size: 17px;
+}
+
+
+/* ---------------------------------------------------------
+   7. MOBILE MENU BUTTON
+   --------------------------------------------------------- */
+
+.mobile-menu-button {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #334155;
+
+    font-size: 20px;
+}
+
+
+/* ---------------------------------------------------------
+   8. MOBILE NAVIGATION
+   --------------------------------------------------------- */
+
+.mobile-navigation {
+    display: none;
+
+    width: 100%;
+
+    padding: 10px 20px 18px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #eef2f7;
+}
+
+.mobile-nav-link {
+    display: block;
+
+    padding: 13px 14px;
+
+    border-radius: 9px;
+
+    color: #475569;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:focus {
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+
+/* ---------------------------------------------------------
+   9. TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 1050px) {
+
+    .navbar-container {
+        gap: 18px;
+    }
+
+    .navbar-links {
+        gap: 0;
+    }
+
+    .nav-link {
+        padding: 0 9px;
+        font-size: 13px;
+    }
+
+    .nav-link::after {
+        left: 9px;
+        right: 9px;
+    }
+
+    .navbar-actions {
+        gap: 10px;
+    }
+
+    .profile-greeting {
+        display: none;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   10. MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 780px) {
+
+    .navbar-container {
+        width: calc(100% - 28px);
+        min-height: 64px;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-actions {
+        margin-left: auto;
+    }
+
+    .mobile-menu-button {
+        display: flex;
+    }
+
+    .mobile-navigation.open {
+        display: block;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .profile-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   11. SMALL MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    .navbar-container {
+        width: calc(100% - 22px);
+    }
+
+    .logo-text {
+        font-size: 15px;
+    }
+
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .navbar-actions {
+        gap: 7px;
+    }
+
+    .developer-profile {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        width: 37px;
+        height: 37px;
+    }
+}

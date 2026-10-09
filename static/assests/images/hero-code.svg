@@ -1,0 +1,382 @@
+<svg width="620" height="460" viewBox="0 0 620 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+        <linearGradient
+            id="windowGradient"
+            x1="80"
+            y1="40"
+            x2="540"
+            y2="420"
+            gradientUnits="userSpaceOnUse">
+
+            <stop offset="0" stop-color="#F8FAFF"/>
+            <stop offset="1" stop-color="#EEF2FF"/>
+
+        </linearGradient>
+
+        <linearGradient
+            id="buttonGradient"
+            x1="370"
+            y1="360"
+            x2="510"
+            y2="395"
+            gradientUnits="userSpaceOnUse">
+
+            <stop offset="0" stop-color="#2563EB"/>
+            <stop offset="1" stop-color="#7C3AED"/>
+
+        </linearGradient>
+
+        <filter
+            id="shadow"
+            x="30"
+            y="20"
+            width="560"
+            height="430"
+            filterUnits="userSpaceOnUse">
+
+            <feDropShadow
+                dx="0"
+                dy="18"
+                stdDeviation="18"
+                flood-color="#1E293B"
+                flood-opacity="0.12"/>
+
+        </filter>
+    </defs>
+
+
+    <!-- Main browser window -->
+
+    <rect
+        x="55"
+        y="35"
+        width="510"
+        height="380"
+        rx="18"
+        fill="white"
+        filter="url(#shadow)"/>
+
+
+    <!-- Browser top bar -->
+
+    <rect
+        x="55"
+        y="35"
+        width="510"
+        height="55"
+        rx="18"
+        fill="url(#windowGradient)"/>
+
+    <rect
+        x="55"
+        y="72"
+        width="510"
+        height="18"
+        fill="url(#windowGradient)"/>
+
+
+    <!-- Traffic lights -->
+
+    <circle
+        cx="82"
+        cy="62"
+        r="6"
+        fill="#EF4444"/>
+
+    <circle
+        cx="101"
+        cy="62"
+        r="6"
+        fill="#F59E0B"/>
+
+    <circle
+        cx="120"
+        cy="62"
+        r="6"
+        fill="#22C55E"/>
+
+
+    <!-- Browser title -->
+
+    <rect
+        x="190"
+        y="51"
+        width="170"
+        height="22"
+        rx="7"
+        fill="#E2E8F0"/>
+
+
+    <!-- Tabs -->
+
+    <rect
+        x="80"
+        y="105"
+        width="180"
+        height="42"
+        rx="8"
+        fill="#EFF6FF"/>
+
+    <text
+        x="108"
+        y="131"
+        font-family="Arial, sans-serif"
+        font-size="14"
+        font-weight="600"
+        fill="#2563EB">
+        Your Code
+    </text>
+
+
+    <text
+        x="305"
+        y="131"
+        font-family="Arial, sans-serif"
+        font-size="14"
+        font-weight="500"
+        fill="#64748B">
+        Commented Code
+    </text>
+
+
+    <!-- Language selector -->
+
+    <rect
+        x="80"
+        y="165"
+        width="105"
+        height="32"
+        rx="7"
+        fill="#F1F5F9"/>
+
+    <text
+        x="96"
+        y="186"
+        font-family="Arial, sans-serif"
+        font-size="12"
+        font-weight="600"
+        fill="#334155">
+        Python
+    </text>
+
+    <path
+        d="M166 179L170 183L174 179"
+        stroke="#64748B"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+
+    <!-- Code editor -->
+
+    <rect
+        x="80"
+        y="212"
+        width="460"
+        height="132"
+        rx="10"
+        fill="#0F172A"/>
+
+
+    <!-- Line numbers -->
+
+    <text
+        x="96"
+        y="238"
+        font-family="monospace"
+        font-size="11"
+        fill="#64748B">
+        1
+    </text>
+
+    <text
+        x="96"
+        y="260"
+        font-family="monospace"
+        font-size="11"
+        fill="#64748B">
+        2
+    </text>
+
+    <text
+        x="96"
+        y="282"
+        font-family="monospace"
+        font-size="11"
+        fill="#64748B">
+        3
+    </text>
+
+    <text
+        x="96"
+        y="304"
+        font-family="monospace"
+        font-size="11"
+        fill="#64748B">
+        4
+    </text>
+
+    <text
+        x="96"
+        y="326"
+        font-family="monospace"
+        font-size="11"
+        fill="#64748B">
+        5
+    </text>
+
+
+    <!-- Code -->
+
+    <text
+        x="120"
+        y="238"
+        font-family="monospace"
+        font-size="11"
+        fill="#C084FC">
+        def
+    </text>
+
+    <text
+        x="150"
+        y="238"
+        font-family="monospace"
+        font-size="11"
+        fill="#60A5FA">
+        calculate_sum
+    </text>
+
+    <text
+        x="232"
+        y="238"
+        font-family="monospace"
+        font-size="11"
+        fill="#E2E8F0">
+        (a, b):
+    </text>
+
+
+    <text
+        x="120"
+        y="260"
+        font-family="monospace"
+        font-size="11"
+        fill="#94A3B8">
+        result
+    </text>
+
+    <text
+        x="164"
+        y="260"
+        font-family="monospace"
+        font-size="11"
+        fill="#E2E8F0">
+        =
+    </text>
+
+    <text
+        x="178"
+        y="260"
+        font-family="monospace"
+        font-size="11"
+        fill="#FBBF24">
+        a
+    </text>
+
+    <text
+        x="190"
+        y="260"
+        font-family="monospace"
+        font-size="11"
+        fill="#E2E8F0">
+        +
+    </text>
+
+    <text
+        x="204"
+        y="260"
+        font-family="monospace"
+        font-size="11"
+        fill="#FBBF24">
+        b
+    </text>
+
+
+    <text
+        x="120"
+        y="282"
+        font-family="monospace"
+        font-size="11"
+        fill="#C084FC">
+        return
+    </text>
+
+    <text
+        x="168"
+        y="282"
+        font-family="monospace"
+        font-size="11"
+        fill="#94A3B8">
+        result
+    </text>
+
+
+    <text
+        x="120"
+        y="304"
+        font-family="monospace"
+        font-size="11"
+        fill="#64748B">
+        # Calculate the total
+    </text>
+
+
+    <text
+        x="120"
+        y="326"
+        font-family="monospace"
+        font-size="11"
+        fill="#60A5FA">
+        print
+    </text>
+
+    <text
+        x="156"
+        y="326"
+        font-family="monospace"
+        font-size="11"
+        fill="#E2E8F0">
+        (calculate_sum(10, 20))
+    </text>
+
+
+    <!-- Generate button -->
+
+    <rect
+        x="370"
+        y="360"
+        width="170"
+        height="38"
+        rx="9"
+        fill="url(#buttonGradient)"/>
+
+    <text
+        x="397"
+        y="384"
+        font-family="Arial, sans-serif"
+        font-size="12"
+        font-weight="700"
+        fill="white">
+        Generate Comments
+    </text>
+
+
+    <!-- Small AI sparkle -->
+
+    <path
+        d="M522 372L525 380L533 383L525 386L522 394L519 386L511 383L519 380L522 372Z"
+        fill="white"
+        opacity="0.9"/>
+
+</svg>

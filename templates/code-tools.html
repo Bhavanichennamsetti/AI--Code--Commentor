@@ -1,0 +1,336 @@
+{% extends "base.html" %}
+
+{% block title %}Code Tools | AI Code Commentor{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/code-tools.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/code-tools.js') }}"></script>
+<script src="{{ url_for('static', filename='js/downloader.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+<section class="tools-page">
+
+    <div class="tools-container">
+
+        <div class="tools-header">
+
+            <span class="tools-label">
+                AI DEVELOPER TOOLS
+            </span>
+
+            <h1>
+                Understand &amp; Improve
+                <span class="gradient-text">Your Code</span>
+            </h1>
+
+            <p>
+                Use AI-powered tools to comment, analyze, explain,
+                and fix your code in seconds.
+            </p>
+
+        </div>
+
+
+        <div class="tool-selector">
+
+            <button class="tool-button active"
+                    type="button"
+                    data-tool="comment">
+
+                <span class="tool-button-icon">✎</span>
+
+                <span>
+                    <strong>Comment Code</strong>
+                    <small>Add meaningful comments</small>
+                </span>
+
+            </button>
+
+
+            <button class="tool-button"
+                    type="button"
+                    data-tool="analyze">
+
+                <span class="tool-button-icon">◈</span>
+
+                <span>
+                    <strong>Analyze Code</strong>
+                    <small>Check quality &amp; security</small>
+                </span>
+
+            </button>
+
+
+            <button class="tool-button"
+                    type="button"
+                    data-tool="explain">
+
+                <span class="tool-button-icon">?</span>
+
+                <span>
+                    <strong>Explain Code</strong>
+                    <small>Understand your code</small>
+                </span>
+
+            </button>
+
+
+            <button class="tool-button"
+                    type="button"
+                    data-tool="fix">
+
+                <span class="tool-button-icon">⚙</span>
+
+                <span>
+                    <strong>Fix Bugs</strong>
+                    <small>Find &amp; fix problems</small>
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div class="code-tools-workspace">
+
+            <div class="workspace-header">
+
+                <div>
+                    <h2 id="toolTitle">
+                        Add Meaningful Comments
+                    </h2>
+
+                    <p id="toolDescription">
+                        Let AI add useful comments to your code
+                        without changing its logic.
+                    </p>
+                </div>
+
+                <div class="workspace-actions">
+
+                    <button type="button"
+                            class="small-button"
+                            id="clearCodeButton">
+                        Clear
+                    </button>
+
+                    <button type="button"
+                            class="small-button"
+                            id="copyCodeButton">
+                        Copy
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="editor-toolbar">
+
+                <div class="language-selector">
+
+                    <label for="languageSelect">
+                        Language
+                    </label>
+
+                    <select id="languageSelect">
+
+                        <option value="Python">
+                            Python
+                        </option>
+
+                        <option value="JavaScript">
+                            JavaScript
+                        </option>
+
+                        <option value="Java">
+                            Java
+                        </option>
+
+                        <option value="C">
+                            C
+                        </option>
+
+                        <option value="C++">
+                            C++
+                        </option>
+
+                        <option value="HTML">
+                            HTML
+                        </option>
+
+                        <option value="CSS">
+                            CSS
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <label class="upload-button">
+
+                    <input type="file"
+                           id="codeFileInput"
+                           accept=".py,.js,.java,.c,.cpp,.h,.html,.css,.txt">
+
+                    <span>↑</span>
+                    Upload File
+
+                </label>
+
+            </div>
+
+
+            <div class="editor-grid">
+
+                <div class="editor-panel">
+
+                    <div class="panel-header">
+
+                        <span>
+                            Your Code
+                        </span>
+
+                        <span class="line-count"
+                              id="lineCount">
+                            0 lines
+                        </span>
+
+                    </div>
+
+                    <textarea
+                        id="codeInput"
+                        class="code-input"
+                        spellcheck="false"
+                        placeholder="Paste or type your code here..."></textarea>
+
+                </div>
+
+
+                <div class="editor-panel output-panel">
+
+                    <div class="panel-header">
+
+                        <span id="outputTitle">
+                            Commented Code
+                        </span>
+
+                        <button type="button"
+                                class="copy-output-button"
+                                id="copyOutputButton">
+                            Copy
+                        </button>
+
+                    </div>
+
+                    <pre id="codeOutput"
+                         class="code-output">Your AI result will appear here.</pre>
+
+                </div>
+
+            </div>
+
+
+            <div class="workspace-footer">
+
+                <div class="status-message"
+                     id="statusMessage">
+                </div>
+
+                <button type="button"
+                        class="generate-button"
+                        id="generateButton">
+
+                    <span>✦</span>
+
+                    <span id="generateButtonText">
+                        Generate Comments
+                    </span>
+
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="quick-tools">
+
+            <div class="quick-tool-card">
+
+                <div class="quick-tool-icon">
+                    ✎
+                </div>
+
+                <div>
+                    <h3>Comment Code</h3>
+                    <p>
+                        Make your code easier to understand.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="quick-tool-card">
+
+                <div class="quick-tool-icon">
+                    ◈
+                </div>
+
+                <div>
+                    <h3>Analyze Code</h3>
+                    <p>
+                        Find quality, performance and security issues.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="quick-tool-card">
+
+                <div class="quick-tool-icon">
+                    ?
+                </div>
+
+                <div>
+                    <h3>Explain Code</h3>
+                    <p>
+                        Get a simple explanation of your code.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="quick-tool-card">
+
+                <div class="quick-tool-icon">
+                    ⚙
+                </div>
+
+                <div>
+                    <h3>Fix Bugs</h3>
+                    <p>
+                        Detect problems and get corrected code.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

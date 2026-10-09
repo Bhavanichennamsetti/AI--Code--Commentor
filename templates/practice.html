@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block title %}
+AI Practice | AI Code Commentor
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/practice.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/practice.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+<section class="practice-page">
+
+    <div class="practice-container">
+
+        <div class="practice-header">
+
+            <a href="{{ url_for(
+                'question',
+                difficulty=difficulty,
+                question_id=question_id
+            ) }}"
+               class="practice-back">
+                ← Back to Question
+            </a>
+
+            <span class="practice-label">
+                AI PRACTICE
+            </span>
+
+            <h1>
+                Practice Your
+                <span class="gradient-text">Skills</span>
+            </h1>
+
+            <p>
+                Strengthen your understanding with these
+                additional practice questions.
+            </p>
+
+        </div>
+
+
+        <div class="practice-question-info">
+
+            <div class="info-left">
+
+                <span class="difficulty-badge">
+                    {{ difficulty|upper }}
+                </span>
+
+                <span class="topic-badge">
+                    {{ question.topic }}
+                </span>
+
+            </div>
+
+            <div class="info-right">
+                2 Practice Questions
+            </div>
+
+        </div>
+
+
+        <div class="practice-grid">
+
+            {% for practice_question in question.practice %}
+
+            <article class="practice-question-card">
+
+                <div class="practice-card-top">
+
+                    <div class="practice-number">
+                        {{ "%02d"|format(practice_question.id) }}
+                    </div>
+
+                    <span class="practice-status">
+                        Practice
+                    </span>
+
+                </div>
+
+
+                <div class="practice-card-body">
+
+                    <h2>
+                        {{ practice_question.title }}
+                    </h2>
+
+                    <p>
+                        {{ practice_question.description }}
+                    </p>
+
+                </div>
+
+
+                <div class="practice-card-footer">
+
+                    <button type="button"
+                            class="start-practice-button"
+                            data-practice-id="{{ practice_question.id }}"
+                            data-question="{{ practice_question.title }}"
+                            data-description="{{ practice_question.description }}">
+
+                        Start Practice
+
+                        <span>→</span>
+
+                    </button>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="practice-workspace"
+             id="practiceWorkspace"
+             hidden>
+
+            <div class="workspace-heading">
+
+                <div>
+
+                    <span class="workspace-label">
+                        CURRENT PRACTICE
+                    </span>
+
+                    <h2 id="practiceTitle">
+                        Practice Question
+                    </h2>
+
+                </div>
+
+                <button type="button"
+                        class="close-practice-button"
+                        id="closePracticeButton">
+                    Close
+                </button>
+
+            </div>
+
+
+            <div class="practice-problem"
+                 id="practiceDescription">
+            </div>
+
+
+            <div class="practice-editor">
+
+                <div class="editor-header">
+
+                    <span>
+                        Your Code
+                    </span>
+
+                    <select id="practiceLanguage">
+
+                        <option value="Python">
+                            Python
+                        </option>
+
+                        <option value="JavaScript">
+                            JavaScript
+                        </option>
+
+                        <option value="Java">
+                            Java
+                        </option>
+
+                        <option value="C">
+                            C
+                        </option>
+
+                        <option value="C++">
+                            C++
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <textarea
+                    id="practiceCode"
+                    spellcheck="false"
+                    placeholder="Write your solution here..."></textarea>
+
+            </div>
+
+
+            <div class="practice-actions">
+
+                <span id="practiceMessage"></span>
+
+                <button type="button"
+                        class="submit-practice-button"
+                        id="submitPracticeButton">
+
+                    Submit for Evaluation
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+
+            <div class="practice-result"
+                 id="practiceResult"
+                 hidden>
+
+                <div class="result-header">
+
+                    <span class="result-icon"
+                          id="resultIcon">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <span class="result-label">
+                            AI EVALUATION
+                        </span>
+
+                        <h3 id="resultTitle">
+                            Evaluation Result
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="result-content"
+                     id="resultContent">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

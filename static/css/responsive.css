@@ -1,0 +1,308 @@
+/* =========================================================
+   AI CODE COMMENTOR
+   GLOBAL RESPONSIVE STYLES
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   LARGE TABLETS / SMALL LAPTOPS
+   --------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+
+    .container,
+    .hero-container,
+    .tools-container,
+    .screening-container,
+    .practice-container,
+    .about-container {
+        width: calc(100% - 40px);
+    }
+
+    .question-layout {
+        width: calc(100% - 40px);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   TABLETS
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .page-content {
+        min-height: calc(100vh - 70px);
+    }
+
+    .main-footer {
+        padding: 24px 20px;
+    }
+
+    .footer-container {
+        width: calc(100% - 30px);
+    }
+
+    .hero-container {
+        width: calc(100% - 36px);
+    }
+
+    .tools-container,
+    .screening-container,
+    .practice-container,
+    .about-container {
+        width: calc(100% - 36px);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   TABLET / MOBILE NAVIGATION
+   --------------------------------------------------------- */
+
+@media (max-width: 780px) {
+
+    .navbar-container {
+        min-height: 66px;
+    }
+
+    .navbar-links,
+    .navbar-actions {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: flex;
+    }
+
+    .mobile-navigation {
+        display: none;
+    }
+
+    .mobile-navigation.open {
+        display: flex;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+
+    .editor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .difficulty-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .page-content {
+        min-height: calc(100vh - 66px);
+    }
+
+    .main-footer {
+        padding: 22px 14px;
+    }
+
+    .footer-container {
+        width: 100%;
+    }
+
+    .footer-container p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    .hero-container,
+    .tools-container,
+    .screening-container,
+    .practice-container,
+    .about-container,
+    .question-layout {
+        width: calc(100% - 28px);
+    }
+
+    .hero-title {
+        font-size: 38px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-selector {
+        flex-wrap: wrap;
+    }
+
+    .tool-button {
+        flex: 1 1 45%;
+    }
+
+    .workspace-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .workspace-footer button {
+        width: 100%;
+    }
+
+    .quick-tools {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .question-layout {
+        display: block;
+    }
+
+    .question-sidebar {
+        position: static;
+    }
+
+    .examples-grid,
+    .practice-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   SMALL MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 450px) {
+
+    .navbar-logo {
+        gap: 7px;
+    }
+
+    .logo-icon {
+        width: 31px;
+        height: 31px;
+
+        font-size: 12px;
+    }
+
+    .logo-text {
+        font-size: 13px;
+    }
+
+    .mobile-menu-button {
+        width: 35px;
+        height: 35px;
+    }
+
+    .hero-section {
+        padding: 55px 0 65px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-badge {
+        font-size: 9px;
+    }
+
+    .hero-benefits {
+        gap: 9px;
+    }
+
+    .benefit-item {
+        font-size: 11px;
+    }
+
+    .code-window {
+        border-radius: 10px;
+    }
+
+    .code-editor {
+        font-size: 10px;
+    }
+
+    .feature-card {
+        padding: 18px;
+    }
+
+    .quick-tools {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-button {
+        flex: 1 1 100%;
+    }
+
+    .question-tabs {
+        margin-left: -2px;
+        margin-right: -2px;
+    }
+
+    .content-card {
+        padding: 17px;
+    }
+
+    .practice-card {
+        padding: 17px;
+    }
+
+    .about-header h1 {
+        font-size: 31px;
+    }
+
+    .technology-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   VERY SMALL SCREENS
+   --------------------------------------------------------- */
+
+@media (max-width: 360px) {
+
+    .hero-title {
+        font-size: 29px;
+    }
+
+    .logo-text {
+        font-size: 12px;
+    }
+
+    .technology-list {
+        grid-template-columns: 1fr;
+    }
+
+    .question-list {
+        grid-template-columns: 1fr;
+    }
+}
